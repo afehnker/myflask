@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ISS tracker</title>
+</head>
+<body>
+    <h1>Using APIs</h1>
+    <p>This webpage shows how to make use of a couple of APIs. The website <a href="http://api.open-notify.org/">http://api.open-notify.org/</a>
+    has two available APIs: one for the location of the International Space Station (ISS), and a live conuter
+    of the amount of people currently in space. Probably useful for... something.
+
+    With the Python <code>requests</code> library, you can retreive the coordinates on Earth above which the ISS is currently positioned.
+    With the OpenCage API, you can input these coordinates to achieve all kinds of data, like the city, country, sunrise and sunset time,
+    the name of the body of water if its not above land, et cetera. Using the <code>pprint</code> module, you can make JSON
+        data appear nicely formatted in the Python console.
+    </p>
+
+    Using the ISS API, the following JSON formatted response:
+
+    <pre><code>{{iss_data}}</code></pre>
+
+    <p>The International Space Stations is currently at the following coordinates:
+    {{lat}}, {{lon}} (Retrieved at <span class="output"></span> UTC).</p>
+
+    According the OpenCage API, the ISS is now directly above {{location}}.
+
+    <script type="text/javascript" src="{{ url_for('static', filename='timestamp.js') }}"></script>
+</body>
+</html>
