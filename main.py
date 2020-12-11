@@ -60,8 +60,11 @@ def iss():
 
         geo_results = geocoder.reverse_geocode(lat, lon)
         pprint(geo_results)
-        formatted_location = geo_results[0]["formatted"]
-        return render_template('iss.html', iss_data=iss_json, lat=lat, lon=lon, location=formatted_location)
+        if len(geo_results)>0:
+            formatted_location = geo_results[0]["formatted"]
+            return render_template('iss.html', iss_data=iss_json, lat=lat, lon=lon, location=formatted_location)
+        else:
+            print(f"Something went wrong with status code {iss_response.status_code}. ")
 
 if __name__ == '__main__':
     app.run(debug=True)
